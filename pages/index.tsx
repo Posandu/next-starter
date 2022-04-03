@@ -1,79 +1,59 @@
 import Head from "next/head";
+import Image from "next/image";
 import { FC } from "react";
-import Footer from "../components/Footer";
-import { ButtonBase } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
+
+const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#f5f5f9",
+    color: "rgba(0, 0, 0, 0.87)",
+    maxWidth: 220,
+    fontSize: theme.typography.pxToRem(12),
+    border: "1px solid #dadde9",
+  },
+}));
 
 const Home: FC = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
+    <div className="m-0 bg-gray-900 min-h-screen py-10 text-white">
       <Head>
-        <title>Create Next App</title>
+        <title>Posandu - Portfolio</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{" "}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+      <main className="max-w-2xl m-auto">
+        <Image
+          src="/profile.png"
+          alt="Posandu"
+          width={150}
+          height={150}
+          className="rounded-full"
+        />
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{" "}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.js
-          </code>
+        <h1 className="text-4xl font-bold mt-4">Posandu</h1>
+        <p className="mt-2">
+          Fullstack developer, Blogger, and a passionate learner.
         </p>
 
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <ButtonBase
-            component="a"
-            className="w-80 flex-col flex items-start text-left px-8 py-4 rounded m-4 bg-slate-50 transition-all hover:bg-blue-50 hover:text-blue-600 focus:bg-blue-100 focus:text-blue-600"
-            href="https://nextjs.org/docs"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
-          </ButtonBase>
+        <div className="p-2"></div>
 
-          <ButtonBase
-            component="a"
-            className="w-80 flex-col flex items-start text-left px-8 py-4 rounded m-4 bg-slate-50 transition-all hover:bg-blue-50 hover:text-blue-600 focus:bg-blue-100 focus:text-blue-600"
-            href="https://nextjs.org/learn"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </ButtonBase>
+        <h2 className="text-2xl font-bold mt-4">About</h2>
+        <p className="text-s text-gray-400 mt-4">
+          Hey! I&apos;m Posandu, a {new Date().getFullYear() - 2008} year old
+          fullstack developer from Sri Lanka. I have a passion for building
+          things that people love to use. 
+        </p>
+        <div className="p-2"></div>
 
-          <ButtonBase
-            component="a"
-            className="w-80 flex-col flex items-start text-left px-8 py-4 rounded m-4 bg-slate-50 transition-all hover:bg-blue-50 hover:text-blue-600 focus:bg-blue-100 focus:text-blue-600"
-            href="https://github.com/vercel/next.js/tree/master/examples"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </ButtonBase>
-
-          <ButtonBase
-            component="a"
-            className="w-80 flex-col flex items-start text-left px-8 py-4 rounded m-4 bg-slate-50 transition-all hover:bg-blue-50 hover:text-blue-600 focus:bg-blue-100 focus:text-blue-600"
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </ButtonBase>
+        <div className="flex">
+          <a href="#">
+            
+          </a>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
